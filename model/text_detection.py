@@ -6,7 +6,6 @@ import cv2
 
 # Module files
 from read_input import InputParser
-from preprocessing import reshape_image
 
 # Mean subtraction values
 mean_red = 123.68 
@@ -110,12 +109,15 @@ for (startX, startY, endX, endY) in rects:
 	# Draw bounding box
 	cv2.rectangle(orig, (startX, startY), (endX, endY), (0, 255, 0), 2)
 
-# Show original image 
-#figure = cv2.imshow("Text Detection", orig)
-#cv2.waitKey(0)
+
+# Save image or plot
 if args['save_image'] != None:
     file_name = args['save_image'] + '.jpg'
     cv2.imwrite(file_name, orig)
+else:
+    figure = cv2.imshow("Result", orig)
+    cv2.waitKey(0)
+
 
 
 

@@ -1,13 +1,13 @@
 import argparse
 
-class InputParser(argparse.ArgumentParser):
+class TextDetectionInputParser(argparse.ArgumentParser):
 
     '''
     A command-line interface that is implemented with argparse.ArgumentParser
     '''
 
     def __init__(self):
-        super(InputParser,self).__init__()
+        super(TextDetectionInputParser,self).__init__()
 
         # Adding arguments
 
@@ -17,10 +17,10 @@ class InputParser(argparse.ArgumentParser):
         self.add_argument("-east", "--east", type=str,
             help="path to pre-trained EAST text detector")
 
-        self.add_argument("-w", "--width", type=int, default=320,
+        self.add_argument("-w", "--width", type=int, default=1600,
             help="resized image width [multiple of 32]")
 
-        self.add_argument("-e", "--height", type=int, default=320,
+        self.add_argument("-e", "--height", type=int, default=1600,
             help="resized image height [multiple of 32]")
 
         self.add_argument("-c", "--min-confidence", type=float, default=0.5,
@@ -32,3 +32,5 @@ class InputParser(argparse.ArgumentParser):
 
         # Retrieve arguments
         self.args = vars(self.parse_args())
+
+        

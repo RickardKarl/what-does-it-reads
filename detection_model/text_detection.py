@@ -5,7 +5,7 @@ import time
 import cv2
 
 # Module files
-from read_input import InputParser
+from read_input import TextDetectionInputParser
 
 # Mean subtraction values
 mean_red = 123.68 
@@ -15,7 +15,7 @@ mean_blue = 103.94
 if __name__ == "__main__":
 
     # Parse arguments
-    parser = InputParser()
+    parser = TextDetectionInputParser()
     args = parser.args
 
     # Get image and save original
